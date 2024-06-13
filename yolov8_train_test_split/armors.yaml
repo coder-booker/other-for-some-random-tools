@@ -1,6 +1,0 @@
-train: D:\git\ai\yolov8\data\train.txt
-val: D:\git\ai\yolov8\data\val.txt
-test: D:\git\ai\yolov8\data\test.txt
-
-nc: 12
-names: ['B1', 'B2', 'B3', 'B4', 'B5', 'B7', 'R1', 'R2', 'R3', 'R4', 'R5', 'R7']

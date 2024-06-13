@@ -1,0 +1,6 @@
+train: /mnt/disk2/yhc/car_dataset/train/images
+val: /mnt/disk2/yhc/car_dataset/test/images
+test: /mnt/disk2/yhc/car_dataset/test/images
+
+nc: 1
+names: ['car']
