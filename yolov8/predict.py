@@ -18,8 +18,8 @@ class YoloDetector:
                 processed_boxes.append(([x, y, w, h], cls, conf))
                 cv2.rectangle(processed_frame, (x-w//2, y-h//2), (x+w//2, y+h//2), (0, 255, 0), 1)
                 cv2.putText(processed_frame, f'car {conf:.2f}', (x-w//2, y-h//2+10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (36,255,12), 1)
-        cv2.imshow("car_detect", processed_frame)
-        cv2.waitKey(0)
+        # cv2.imshow("car_detect", processed_frame)
+        # cv2.waitKey(0)
         return processed_boxes
 
     def armors_detect(self, armor_frames):
@@ -55,6 +55,7 @@ class YoloDetector:
             x, y, w, h = car_box
             cv2.rectangle(frame, (x-w//2, y-h//2), (x+w//2, y+h//2), (0, 255, 0), 1)
             cv2.putText(frame, f'car {conf:.2f}', (x-w//2, y-h//2+10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (36,255,12), 1)
+            print(armors_box[0])
             for box, cls, conf in armors_box:
                 ax, ay, aw, ah = map(int, box)
                 # cls = int(cls)
@@ -63,7 +64,7 @@ class YoloDetector:
 
 
             
-test_detector = YoloDetector("./car_best.pt", "./armor_best.pt")
+test_detector = YoloDetector("./car_only.pt", "./armor_only.pt")
 test_frame = cv2.imread("./test_frame.jpg")
 
 car_boxes = test_detector.car_detect(test_frame)
